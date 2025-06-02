@@ -62,20 +62,20 @@
             padding-bottom: 5px;
         }
 
-        /* Háromszög ikon */
+        /* Háromszög ikon - alapból jobbra mutat */
         .toggle-header .arrow {
             width: 0; 
             height: 0; 
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-top: 8px solid #a0d8f7;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 12px solid #a0d8f7;
             margin-right: 10px;
             transition: transform 0.3s ease;
         }
 
         /* Háromszög lefelé mutat, ha aktív */
         .toggle-header.active .arrow {
-            transform: rotate(180deg);
+            transform: rotate(90deg);
         }
 
         /* Toggle tartalom alapból rejtve */
@@ -122,8 +122,9 @@
     <script>
         function toggleContent(headerElem) {
             const content = headerElem.nextElementSibling;
-            content.style.display = (content.style.display === "block") ? "none" : "block";
-            headerElem.classList.toggle("active");
+            const isVisible = content.style.display === "block";
+            content.style.display = isVisible ? "none" : "block";
+            headerElem.classList.toggle("active", !isVisible);
         }
     </script>
 </body>
