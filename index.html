@@ -43,11 +43,32 @@
         }
 
         .column h2 {
-            margin: 0;
+            margin: 0 0 15px 0;
             font-size: 1.4em;
             color: #ffffff;
         }
 
+        /* Toggle cím stílusa */
+        .toggle-header {
+            font-size: 1.2em; /* h3 méret körülbelül */
+            margin: 10px 0;
+            cursor: pointer;
+            user-select: none;
+            color: #a0d8f7;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+
+        /* Toggle tartalom alapból rejtve */
+        .toggle-content {
+            display: none;
+            margin-top: 10px;
+            color: #dddddd;
+            font-size: 1em;
+            text-align: left;
+        }
+
+        /* Reszponzív */
         @media (max-width: 700px) {
             .container {
                 flex-direction: column;
@@ -61,6 +82,9 @@
     <div class="container">
         <div class="column">
             <h2>IF electrical</h2>
+
+            <div class="toggle-header" onclick="toggleContent(this)">Layout</div>
+            <div class="toggle-content">General layout</div>
         </div>
         <div class="column">
             <h2>IF civil</h2>
@@ -72,5 +96,16 @@
             <h2>HV civil</h2>
         </div>
     </div>
+
+    <script>
+        function toggleContent(headerElem) {
+            const content = headerElem.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
