@@ -1,82 +1,211 @@
-<div class="column">
-    <h2>IF electrical</h2>
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8" />
+    <title>pv design list</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #000000; /* fekete háttér */
+            color: #ffffff; /* fehér betűk */
+        }
 
-    <div class="toggle-header" onclick="toggleContent(this)">
-        <div class="arrow"></div>
-        CCTV
-    </div>
-    <div class="toggle-content">
-        <p>Layout</p>
-        <p>Power SLD</p>
-        <p>Communication SLD</p>
-        <p>Pole side view design</p>
-        <p>Cabinet design</p>
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .column {
+            background-color: #1a1a1a; /* sötétszürke oszlop háttér */
+            padding: 20px;
+            flex: 1;
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s ease;
+            color: #ffffff;
+        }
+
+        .column:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .column h2 {
+            margin: 0 0 15px 0;
+            font-size: 1.4em;
+            color: #ffffff;
+        }
+
+        /* Toggle fejléc stílusa */
+        .toggle-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* balra igazítás */
+            font-size: 1em; /* h3 méret körülbelül */
+            margin: 10px 0;
+            cursor: pointer;
+            user-select: none;
+            color: #a0d8f7;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+
+        /* Háromszög ikon - kisebb méret */
+        .toggle-header .arrow {
+            width: 0; 
+            height: 0; 
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 9px solid #a0d8f7;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Háromszög lefelé mutat, ha aktív */
+        .toggle-header.active .arrow {
+            transform: rotate(90deg);
+        }
+
+        /* Toggle tartalom alapból rejtve */
+        .toggle-content {
+            display: none;
+            margin-top: 10px;
+            color: #dddddd;
+            font-size: 1em;
+            text-align: left;
+        }
+
+        /* Toggle tartalom bekezdések stílusa */
+        .toggle-content p {
+            margin: 4px 0;
+            line-height: 1.3;
+        }
+
+        /* Reszponzív */
+        @media (max-width: 700px) {
+            .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>pv design list</h1>
+    <div class="container">
+        <div class="column">
+            <h2>IF electrical</h2>
+
+            <div class="toggle-header" onclick="toggleContent(this)">
+                <div class="arrow"></div>
+                CCTV
+            </div>
+            <div class="toggle-content">
+                <p>Layout</p>
+                <p>Power SLD</p>
+                <p>Communication SLD</p>
+                <p>Pole side view design</p>
+                <p>Cabinet design</p>
+            </div>
+
+            <div class="toggle-header" onclick="toggleContent(this)">
+                <div class="arrow"></div>
+                Earthing
+            </div>
+            <div class="toggle-content">
+                <p>Transformer station</p>
+                <p>Tracker</p>
+                <p>Outdoor cabinets</p>
+                <p>Oil tray</p>
+                <p>Inverter</p>
+                <p>Gate</p>
+                <p>Fence</p>
+                <p>Client container</p>
+                <p>CCTV pole</p>
+                <p>AC cable shield connection</p>
+                <p>Warehouse</p>
+            </div>
+
+            <div class="toggle-header" onclick="toggleContent(this)">
+                <div class="arrow"></div>
+                Detail drawings
+            </div>
+            <div class="toggle-content">
+                <p>Cable entries</p>
+                <p>Labels</p>
+            </div>
+
+            <div class="toggle-header" onclick="toggleContent(this)">
+                <div class="arrow"></div>
+                String-MPPT configuration
+            </div>
+            <div class="toggle-content">
+                <!-- Ide jöhet tartalom, ha lesz -->
+            </div>
+
+            <div class="toggle-header" onclick="toggleContent(this)">
+                <div class="arrow"></div>
+                Inverter block plan
+            </div>
+            <div class="toggle-content">
+                <!-- Ide jöhet tartalom, ha lesz -->
+            </div>
+
+            <div class="toggle-header" onclick="toggleContent(this)">
+                <div class="arrow"></div>
+                Studies and surveys
+            </div>
+            <div class="toggle-content">
+                <p>Earthing simulation</p>
+                <p>Lightning risk assessment</p>
+                <p>Loadflow study</p>
+                <p>Fire safety survey</p>
+                <p>Short circuit study</p>
+                <p>Protection relay coordination study</p>
+                <p>Environmental safety chapter</p>
+            </div>
+
+            <div class="toggle-header" onclick="toggleContent(this)">
+                <div class="arrow"></div>
+                Cable sizing calculations
+            </div>
+            <div class="toggle-content">
+                <p>DC cables</p>
+                <p>LV cables</p>
+                <p>MV cables</p>
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>IF civil</h2>
+        </div>
+        <div class="column">
+            <h2>HV electrical</h2>
+        </div>
+        <div class="column">
+            <h2>HV civil</h2>
+        </div>
     </div>
 
-    <div class="toggle-header" onclick="toggleContent(this)">
-        <div class="arrow"></div>
-        Earthing
-    </div>
-    <div class="toggle-content">
-        <p>Transformer station</p>
-        <p>Tracker</p>
-        <p>Outdoor cabinets</p>
-        <p>Oil tray</p>
-        <p>Inverter</p>
-        <p>Gate</p>
-        <p>Fence</p>
-        <p>Client container</p>
-        <p>CCTV pole</p>
-        <p>AC cable shield connection</p>
-        <p>Warehouse</p>
-    </div>
-
-    <div class="toggle-header" onclick="toggleContent(this)">
-        <div class="arrow"></div>
-        Detail drawings
-    </div>
-    <div class="toggle-content">
-        <p>Cable entries</p>
-        <p>Labels</p>
-    </div>
-
-    <div class="toggle-header" onclick="toggleContent(this)">
-        <div class="arrow"></div>
-        String-MPPT configuration
-    </div>
-    <div class="toggle-content">
-        <!-- Ha van további tartalom, ide írd -->
-    </div>
-
-    <div class="toggle-header" onclick="toggleContent(this)">
-        <div class="arrow"></div>
-        Inverter block plan
-    </div>
-    <div class="toggle-content">
-        <!-- Ha van további tartalom, ide írd -->
-    </div>
-
-    <div class="toggle-header" onclick="toggleContent(this)">
-        <div class="arrow"></div>
-        Studies and surveys
-    </div>
-    <div class="toggle-content">
-        <p>Earthing simulation</p>
-        <p>Lightning risk assessment</p>
-        <p>Loadflow study</p>
-        <p>Fire safety survey</p>
-        <p>Short circuit study</p>
-        <p>Protection relay coordination study</p>
-        <p>Environmental safety chapter</p>
-    </div>
-
-    <div class="toggle-header" onclick="toggleContent(this)">
-        <div class="arrow"></div>
-        Cable sizing calculations
-    </div>
-    <div class="toggle-content">
-        <p>DC cables</p>
-        <p>LV cables</p>
-        <p>MV cables</p>
-    </div>
-</div>
+    <script>
+        function toggleContent(headerElem) {
+            const content = headerElem.nextElementSibling;
+            const isVisible = content.style.display === "block";
+            content.style.display = isVisible ? "none" : "block";
+            headerElem.classList.toggle("active", !isVisible);
+        }
+    </script>
+</body>
+</html>
